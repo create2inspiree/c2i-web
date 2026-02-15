@@ -1,0 +1,125 @@
+/* Header — Sarvam.ai-Inspired, clean minimal */
+.header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3rem;
+  z-index: 1000;
+  animation: slideDown 0.7s var(--ease-cinematic) both;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-with-img {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--black);
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.header-logo-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: var(--light);
+  transition: transform 0.5s var(--ease-cinematic);
+}
+
+.header-logo-img:hover {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  color: var(--black);
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 0.3rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav a {
+  font-weight: 500;
+  color: var(--gray);
+  font-family: var(--font-main);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+nav a.navbar-link {
+  position: relative;
+  color: var(--gray);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.5rem 0.9rem;
+  transition: color 0.4s var(--ease-cinematic);
+  cursor: pointer;
+}
+
+nav a.navbar-link:hover,
+nav a.navbar-link:focus {
+  color: var(--black);
+}
+
+nav a.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-cinematic);
+  border-radius: 1px;
+}
+
+nav a.navbar-link:hover::after,
+nav a.navbar-link:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile hamburger */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    gap: 0.6rem;
+  }
+
+  nav ul {
+    gap: 0.2rem;
+    flex-wrap: wrap;
+  }
+
+  nav a.navbar-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+}

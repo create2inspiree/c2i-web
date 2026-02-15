@@ -1,0 +1,97 @@
+/* ===========================================
+   C2I Premium Styles — Sarvam.ai-Inspired Design
+   =========================================== */
+
+/* ---- Navbar ---- */
+.navbar-link {
+  position: relative;
+  color: var(--gray);
+  font-weight: 500;
+  text-decoration: none;
+  padding: 0.4rem 0;
+  transition: color 0.4s var(--ease-cinematic);
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--black);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-cinematic);
+  border-radius: 1px;
+}
+
+.navbar-link:hover::after,
+.navbar-link:focus::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar-link:hover {
+  color: var(--black);
+}
+
+/* ---- Section Dividers ---- */
+.section-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--black);
+  margin: 0 auto 3rem;
+  transform: scaleX(0);
+  transition: transform 1s var(--ease-cinematic) 0.3s;
+  border-radius: 2px;
+}
+
+.visible .section-divider,
+.section-divider.visible {
+  transform: scaleX(1);
+}
+
+/* ---- Badge Styles — Pill Shape ---- */
+.badge {
+  display: inline-block;
+  background: var(--black);
+  color: var(--white);
+  padding: 0.4em 1.4em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: transform 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic);
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* ---- Section Header Pattern ---- */
+.section-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 1.2rem;
+  display: block;
+  text-align: center;
+  font-family: var(--font-main);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .navbar-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+  }
+}

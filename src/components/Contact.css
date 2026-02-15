@@ -1,0 +1,100 @@
+/* Contact — Sarvam.ai-Inspired, clean layout */
+.contact {
+  background: var(--light);
+  padding: var(--space-3xl) var(--space-md);
+  text-align: center;
+  scroll-margin-top: 90px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.contact-deco {
+  position: absolute;
+}
+
+.contact-deco-ring {
+  width: 280px;
+  height: 280px;
+  bottom: -60px;
+  right: -60px;
+  animation: float 13s ease-in-out infinite;
+}
+
+.contact h2 {
+  color: var(--black);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-form-embed {
+  background: var(--white);
+  border: 1px solid var(--lighter);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.2rem;
+  min-width: 320px;
+  max-width: 620px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.contact-info {
+  background: var(--black);
+  padding: 2.5rem 2rem;
+  min-width: 200px;
+  max-width: 280px;
+  text-align: left;
+  color: var(--white);
+  font-size: 1.05rem;
+  margin-top: 0;
+  border: 1px solid var(--black);
+  border-radius: var(--radius-md);
+}
+
+.contact-info a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.3s var(--ease-out);
+}
+
+.contact-info a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 1.2rem;
+    align-items: stretch;
+  }
+
+  .contact-form-embed,
+  .contact-info {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .contact {
+    padding: 4rem 1rem;
+  }
+}

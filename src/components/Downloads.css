@@ -1,0 +1,86 @@
+/* Downloads — Sarvam.ai-Inspired, clean cards */
+.downloads {
+  background: var(--white);
+  padding: var(--space-3xl) var(--space-md);
+  text-align: center;
+  scroll-margin-top: 90px;
+  width: 100%;
+}
+
+.downloads h2 {
+  color: var(--black);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.downloads-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.download-card {
+  background: var(--white);
+  border: 1px solid var(--lighter);
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  text-align: left;
+  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic);
+  will-change: transform, box-shadow;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.download-card:hover,
+.download-card:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.download-icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+}
+
+.download-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 0.1rem;
+  font-family: var(--font-display);
+}
+
+.download-desc {
+  font-size: 0.92rem;
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+  line-height: 1.65;
+}
+
+.download-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 0.85rem;
+  padding: 0.7rem 1.8rem;
+}
+
+@media (max-width: 768px) {
+  .downloads {
+    padding: 4rem 1rem;
+  }
+
+  .downloads-list {
+    gap: 1rem;
+  }
+
+  .download-card {
+    padding: 1.5rem 1rem;
+  }
+}

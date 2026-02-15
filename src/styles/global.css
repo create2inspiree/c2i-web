@@ -1,0 +1,300 @@
+
+
+
+/* ===========================================
+   C2I Global Styles — Strict Black & White
+   =========================================== */
+
+:root {
+  /* Strict B&W Color System */
+  --black: #000000;
+  --white: #FFFFFF;
+  --dark: #111111;
+  --darker: #1A1A1A;
+  --gray: #666666;
+  --light: #F7F7F8;
+  --lighter: #E8E8EC;
+  --lightest: #F0F0F3;
+
+  /* Shadows — refined soft shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.14);
+
+  /* Typography — Sarvam.ai-inspired: Space Grotesk + Inter */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing rhythm */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --space-2xl: 8rem;
+  --space-3xl: 10rem;
+
+  /* Transitions — cinematic easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-cinematic: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--white);
+  color: var(--dark);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.75;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-feature-settings: 'cv11' 1, 'ss01' 1;
+  -webkit-text-size-adjust: 100%;
+}
+
+main {
+  background: transparent;
+}
+
+/* Typography — Sarvam.ai Inspired Hierarchy */
+h1, .page-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+h2, .section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 2rem;
+  letter-spacing: -0.025em;
+  text-align: center;
+  line-height: 1.1;
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+p, .body-text {
+  font-family: var(--font-main);
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--gray);
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+.label, label {
+  font-size: 0.88rem;
+  color: var(--gray);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Sections — generous whitespace, centered content */
+section {
+  width: 100%;
+  padding: var(--space-3xl) var(--space-md);
+  scroll-margin-top: 90px;
+}
+
+section > * {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+/* Buttons — refined with subtle radius */
+button, .btn {
+  cursor: pointer;
+  font-family: var(--font-main);
+  border-radius: 50px;
+  border: 1.5px solid var(--black);
+  background: var(--black);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.95rem 2.6rem;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.5s var(--ease-cinematic);
+}
+
+button:hover, button:focus,
+.btn:hover, .btn:focus {
+  background: var(--white);
+  color: var(--black);
+  outline: none;
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:active, .btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Button sweep effect */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--white);
+  border-radius: 50px;
+  transform: translateX(-101%);
+  transition: transform 0.5s var(--ease-cinematic);
+  z-index: 0;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--black);
+  border: 1.5px solid var(--black);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-secondary::before {
+  background: var(--black);
+  border-radius: 50px;
+}
+
+/* Cards — refined with subtle radius */
+.card {
+  background: var(--white);
+  border: 1px solid var(--lighter);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic);
+  will-change: transform, box-shadow;
+}
+
+.card:hover,
+.card:focus {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Inputs — refined */
+input, select, textarea {
+  background: var(--white);
+  color: var(--dark);
+  border: 1.5px solid var(--lighter);
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1.2rem;
+  font-size: 1rem;
+  font-family: var(--font-main);
+  margin-bottom: 1rem;
+  transition: border-color 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic);
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--black);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Accessibility */
+:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 3px;
+}
+
+/* Selection */
+::selection {
+  background: var(--black);
+  color: var(--white);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--darker);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--black);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: var(--space-xl) 1.25rem;
+  }
+
+  .grid {
+    gap: 1.2rem;
+  }
+}
+

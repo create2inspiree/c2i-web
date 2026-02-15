@@ -1,0 +1,58 @@
+/* Stats Strip — Cinematic counter bar */
+.stats-strip {
+  background: var(--black);
+  color: var(--white);
+  padding: 4rem 2rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.stats-strip-inner {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 140px;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--white);
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  color: var(--white);
+  font-family: var(--font-main);
+}
+
+@media (max-width: 768px) {
+  .stats-strip {
+    padding: 2.5rem 1rem;
+  }
+
+  .stats-strip-inner {
+    gap: 2rem;
+  }
+
+  .stat-item {
+    min-width: 110px;
+  }
+}

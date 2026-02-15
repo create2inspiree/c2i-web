@@ -1,0 +1,146 @@
+/* About — Sarvam.ai-Inspired, clean whitespace */
+.about {
+  background: var(--light);
+  padding: var(--space-3xl) var(--space-md);
+  text-align: center;
+  width: 100%;
+  scroll-margin-top: 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-decoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.about-deco {
+  position: absolute;
+}
+
+.about-deco-circles {
+  width: 380px;
+  height: 380px;
+  top: -60px;
+  left: -80px;
+  animation: float 14s ease-in-out infinite;
+}
+
+.about-deco-lines {
+  width: 200px;
+  height: 200px;
+  bottom: -30px;
+  right: -40px;
+  animation: float 11s ease-in-out infinite reverse;
+}
+
+.about-dots-pattern {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.about-dot {
+  width: 3px;
+  height: 3px;
+  background: var(--black);
+  border-radius: 50%;
+  opacity: 0.06;
+}
+
+.about h2 {
+  color: var(--black);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.about-lead {
+  font-size: 1.15rem;
+  color: var(--gray);
+  margin: 0 auto 3.5rem auto;
+  max-width: 680px;
+  line-height: 1.85;
+}
+
+.about-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  max-width: 1200px;
+}
+
+.about-list li {
+  background: var(--white);
+  color: var(--gray);
+  padding: 1.4rem 2.2rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border: 1px solid var(--lighter);
+  border-radius: var(--radius-md);
+  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic);
+}
+
+.about-list li strong {
+  color: var(--black);
+  font-weight: 700;
+}
+
+.about-list li:hover,
+.about-list li:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.about-extra {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.about-badge {
+  background: var(--black);
+  color: var(--white);
+  padding: 0.5em 1.5em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  transition: transform 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic);
+}
+
+.about-badge:hover,
+.about-badge:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 768px) {
+  .about-list {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .about {
+    padding: 4rem 1rem;
+  }
+
+  .about-extra {
+    gap: 0.5rem;
+  }
+}

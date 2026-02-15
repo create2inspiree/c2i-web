@@ -1,0 +1,146 @@
+/* Mentors — Sarvam.ai-Inspired, clean cards */
+.mentors-section {
+  background: var(--light);
+  padding: var(--space-3xl) var(--space-md);
+  width: 100%;
+  scroll-margin-top: 90px;
+  text-align: center;
+}
+
+.mentors-section h2 {
+  color: var(--black);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.mentors-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.mentor-card {
+  background: var(--white);
+  border: 1px solid var(--lighter);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic);
+  will-change: transform, box-shadow;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.mentor-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--black);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.mentor-card:hover::after,
+.mentor-card:focus::after {
+  transform: scaleX(1);
+}
+
+.mentor-card:hover,
+.mentor-card:focus {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-xl);
+}
+
+.mentor-photo-circle {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+  overflow: hidden;
+  border: 2px solid var(--lighter);
+  transition: border-color 0.5s var(--ease-cinematic);
+}
+
+.mentor-card:hover .mentor-photo-circle {
+  border-color: var(--black);
+}
+
+.mentor-logo-img {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--light);
+  transition: transform 0.6s var(--ease-cinematic);
+}
+
+.mentor-card:hover .mentor-logo-img {
+  transform: scale(1.06);
+}
+
+.mentor-photo-placeholder {
+  font-size: 2.4rem;
+  color: var(--darker);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.mentor-info {
+  text-align: center;
+}
+
+.mentor-name {
+  margin: 0 0 0.4rem 0;
+  font-size: 1.15rem;
+  color: var(--black);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-family: var(--font-display);
+}
+
+.mentor-designation {
+  font-size: 0.92rem;
+  color: var(--gray);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.mentor-college {
+  font-size: 0.88rem;
+  color: var(--gray);
+  font-weight: 400;
+  margin-left: 0.3em;
+  opacity: 0.75;
+}
+
+@media (max-width: 768px) {
+  .mentors-section {
+    padding: 4rem 1rem;
+  }
+
+  .mentors-row {
+    gap: 1rem;
+  }
+}

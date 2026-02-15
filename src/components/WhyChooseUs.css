@@ -1,0 +1,79 @@
+/* Why Choose Us — Sarvam.ai-Inspired, clean grid */
+.whychooseus {
+  background: var(--white);
+  padding: var(--space-3xl) var(--space-md);
+  text-align: center;
+  scroll-margin-top: 90px;
+  width: 100%;
+}
+
+.whychooseus h2 {
+  color: var(--black);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.choose-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
+}
+
+.choose-item {
+  background: var(--light);
+  border: 1px solid var(--lighter);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 2rem;
+  min-width: 220px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark);
+  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic), background 0.6s var(--ease-cinematic);
+  will-change: transform, box-shadow;
+}
+
+.choose-item:hover,
+.choose-item:focus {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  background: var(--white);
+}
+
+.choose-icon {
+  font-size: 1.8rem;
+  transition: transform 0.5s var(--ease-cinematic);
+  flex-shrink: 0;
+}
+
+.choose-item:hover .choose-icon,
+.choose-item:focus .choose-icon {
+  transform: scale(1.15) rotate(-3deg);
+}
+
+@media (max-width: 768px) {
+  .choose-list {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .choose-item {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .whychooseus {
+    padding: 4rem 1rem;
+  }
+}
