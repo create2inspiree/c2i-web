@@ -342,6 +342,56 @@
     }
     .brochure-page:last-child { page-break-after: avoid; }
   }
+
+  /* CSS Animated Robot (small scale for brochure) */
+  .robot-scene-sm { display: flex; align-items: center; justify-content: center; margin-bottom: 6px; }
+  .robot-scene-sm .robot-container { transform: scale(0.35); transform-origin: center top; }
+  .robot-container { position: relative; width: 140px; height: 150px; display: flex; align-items: flex-start; justify-content: center; animation: float 4s ease-in-out infinite; }
+  .robot-glow { position: absolute; width: 100px; height: 100px; border-radius: 50%; background: radial-gradient(circle, rgba(212,160,74,0.22) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); animation: ambientGlow 3s ease-in-out infinite; pointer-events: none; }
+  .robot { position: relative; display: flex; flex-direction: column; align-items: center; width: 100%; }
+  .robot-shadow { position: absolute; bottom: -6px; width: 58px; height: 9px; background: radial-gradient(ellipse, rgba(56,30,40,0.3) 0%, transparent 70%); border-radius: 50%; animation: shadowPulse 4s ease-in-out infinite; }
+  .robot-antenna { width: 3px; height: 15px; background: rgba(244,237,219,0.55); border-radius: 3px; position: relative; animation: wobble 2s ease-in-out infinite; transform-origin: bottom center; }
+  .antenna-tip { position: absolute; top: -5px; left: 50%; transform: translateX(-50%); width: 8px; height: 8px; border-radius: 50%; background: #d4a04a; box-shadow: 0 0 6px 2px rgba(212,160,74,0.65); animation: antennaPulse 1.5s ease-in-out infinite; }
+  .robot-head { width: 54px; height: 44px; border-radius: 42px 42px 28px 28px; background: linear-gradient(145deg, rgba(244,237,219,0.18), rgba(94,53,65,0.6)); border: 1.5px solid rgba(244,237,219,0.22); position: relative; display: flex; align-items: center; justify-content: center; gap: 6px; animation: headTilt 6s ease-in-out infinite; }
+  .eye { width: 15px; height: 15px; border-radius: 50%; background: #fff; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .eye-ball { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+  .pupil { width: 7px; height: 7px; border-radius: 50%; background: #381e28; position: relative; animation: lookAround 4s ease-in-out infinite; }
+  .pupil-highlight { position: absolute; width: 2.5px; height: 2.5px; border-radius: 50%; background: #fff; top: 0.5px; right: 0.5px; }
+  .blink-overlay { position: absolute; top: 0; left: 0; right: 0; height: 100%; background: #fff; border-radius: 50%; transform: scaleY(0); transform-origin: top; animation: blink 4s ease-in-out infinite; }
+  .eye-bridge { position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%); width: 12px; height: 2.5px; background: rgba(244,237,219,0.3); border-radius: 2px; }
+  .robot-body { width: 58px; height: 42px; border-radius: 8px; background: linear-gradient(170deg, rgba(94,53,65,0.75) 0%, rgba(56,30,40,0.9) 100%); border: 1.5px solid rgba(244,237,219,0.18); margin-top: 3px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  .chest-screen { overflow: hidden; }
+  .ecg-line { animation: ecgDraw 2s linear infinite; }
+  .body-dots { display: flex; gap: 5px; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: #d4a04a; opacity: 0.7; }
+  .dot-1 { animation: dotPulse 1.5s ease-in-out infinite 0s; }
+  .dot-2 { animation: dotPulse 1.5s ease-in-out infinite 0.3s; }
+  .dot-3 { animation: dotPulse 1.5s ease-in-out infinite 0.6s; }
+  .robot-arm { position: absolute; top: 62px; width: 13px; height: 34px; background: linear-gradient(180deg, rgba(94,53,65,0.75) 0%, rgba(56,30,40,0.9) 100%); border-radius: 7px; border: 1px solid rgba(244,237,219,0.15); }
+  .arm-left { left: 8px; transform-origin: top center; animation: waveLeft 2.5s ease-in-out infinite; }
+  .arm-right { right: 8px; transform-origin: top center; animation: waveRight 2.5s ease-in-out infinite; }
+  .arm-hand { width: 11px; height: 11px; border-radius: 50%; background: rgba(244,237,219,0.15); border: 1px solid rgba(244,237,219,0.2); position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); }
+  .robot-treads { display: flex; gap: 8px; margin-top: 3px; }
+  .tread { width: 22px; height: 11px; border-radius: 6px; background: linear-gradient(180deg, rgba(94,53,65,0.7), rgba(56,30,40,0.9)); border: 1px solid rgba(244,237,219,0.15); animation: treadWiggle 1.5s ease-in-out infinite; }
+  .tread-right { animation-delay: 0.2s; }
+  .sparkle { position: absolute; width: 5px; height: 5px; border-radius: 50%; background: #d4a04a; opacity: 0; animation: sparkleAnim 3s ease-in-out infinite; }
+  .s0{top:18%;left:8%;animation-delay:0s} .s1{top:8%;right:12%;animation-delay:0.4s} .s2{top:38%;left:2%;animation-delay:0.8s} .s3{top:55%;right:5%;animation-delay:1.2s}
+  .s4{bottom:22%;left:12%;animation-delay:1.6s} .s5{bottom:12%;right:10%;animation-delay:2.0s} .s6{top:28%;right:3%;animation-delay:2.4s} .s7{bottom:28%;left:5%;animation-delay:2.8s}
+  .social-icon { width: 28px; height: 28px; border-radius: 50%; background: rgba(244,237,219,0.12); display: flex; align-items: center; justify-content: center; color: var(--vanilla); font-size: 12px; border: 1px solid rgba(244,237,219,0.20); }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+  @keyframes wobble{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+  @keyframes headTilt{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+  @keyframes lookAround{0%,100%{transform:translate(0,0)}25%{transform:translate(3px,1px)}50%{transform:translate(-2px,-1px)}75%{transform:translate(2px,-2px)}}
+  @keyframes blink{0%,90%,100%{transform:scaleY(0)}95%{transform:scaleY(1)}}
+  @keyframes ecgDraw{0%{stroke-dashoffset:120}100%{stroke-dashoffset:-120}}
+  @keyframes waveLeft{0%,100%{transform:rotate(-10deg)}50%{transform:rotate(-30deg)}}
+  @keyframes waveRight{0%,100%{transform:rotate(10deg)}50%{transform:rotate(30deg)}}
+  @keyframes treadWiggle{0%,100%{transform:translateX(0)}50%{transform:translateX(1px)}}
+  @keyframes sparkleAnim{0%,100%{opacity:0;transform:scale(0) rotate(0deg)}50%{opacity:1;transform:scale(1) rotate(180deg)}}
+  @keyframes ambientGlow{0%,100%{opacity:0.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.3)}}
+  @keyframes dotPulse{0%,100%{opacity:0.4;transform:scale(0.8)}50%{opacity:1;transform:scale(1.2)}}
+  @keyframes antennaPulse{0%,100%{box-shadow:0 0 4px 1px rgba(212,160,74,0.4)}50%{box-shadow:0 0 10px 4px rgba(212,160,74,0.85)}}
+  @keyframes shadowPulse{0%,100%{opacity:0.6;transform:scaleX(1)}50%{opacity:0.3;transform:scaleX(0.8)}}
 </style>
 </head>
 <body>
@@ -357,12 +407,13 @@
     <div class="contact-row"><i class="fa-solid fa-globe"></i> www.c2i.co.in</div>
     <div class="contact-row"><i class="fa-solid fa-envelope"></i> create2inspire.support@gmail.com</div>
     <div class="contact-row"><i class="fa-solid fa-phone"></i> +91 630 171 8170</div>
+    <div class="contact-row"><i class="fa-solid fa-phone"></i> +91 955 370 1848</div>
     <div class="contact-row"><i class="fa-solid fa-location-dot"></i> India</div>
     <div class="social-row">
-      <a href="#" aria-label="Visit our Facebook page"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#" aria-label="Visit our Instagram page"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" aria-label="Visit our X (Twitter) page"><i class="fa-brands fa-x-twitter"></i></a>
-      <a href="#" aria-label="Visit our LinkedIn page"><i class="fa-brands fa-linkedin-in"></i></a>
+      <span class="social-icon"><i class="fa-brands fa-facebook-f"></i></span>
+      <span class="social-icon"><i class="fa-brands fa-instagram"></i></span>
+      <span class="social-icon"><i class="fa-brands fa-x-twitter"></i></span>
+      <span class="social-icon"><i class="fa-brands fa-linkedin-in"></i></span>
     </div>
     <div class="testimonials-title"><i class="fa-solid fa-comment-dots"></i> What Parents Say</div>
     <div class="testimonial">
@@ -379,7 +430,7 @@
     </div>
     <div class="cta-text">Join Create 2 Inspire and unlock your child's full potential.</div>
     <div class="qr-badge">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR">
+      <img src="https://raw.githubusercontent.com/create2inspiree/c2i-web/main/marketing/Whatsapp%20community%20QR.jpeg" alt="WhatsApp Community QR">
     </div>
   </div>
 
@@ -419,6 +470,29 @@
 
   <!-- FRONT COVER (right panel) -->
   <div class="panel panel-front panel-divider">
+    <div class="robot-scene-sm">
+      <div class="robot-container">
+        <div class="robot-glow"></div>
+        <div class="robot">
+          <div class="robot-shadow"></div>
+          <div class="robot-antenna"><div class="antenna-tip"></div></div>
+          <div class="robot-head">
+            <div class="eye eye-left"><div class="eye-ball"><div class="pupil"><div class="pupil-highlight"></div></div></div><div class="blink-overlay"></div></div>
+            <div class="eye eye-right"><div class="eye-ball"><div class="pupil"><div class="pupil-highlight"></div></div></div><div class="blink-overlay"></div></div>
+            <div class="eye-bridge"></div>
+          </div>
+          <div class="robot-body">
+            <div class="chest-screen"><svg width="44" height="16" viewBox="0 0 70 24" fill="none"><path class="ecg-line" d="M0 12 L12 12 L18 4 L24 20 L30 8 L36 16 L42 12 L70 12" stroke="rgba(244,237,219,0.6)" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="120" stroke-dashoffset="120"/></svg></div>
+            <div class="body-dots"><div class="dot dot-1"></div><div class="dot dot-2"></div><div class="dot dot-3"></div></div>
+          </div>
+          <div class="robot-arm arm-left"><div class="arm-hand"></div></div>
+          <div class="robot-arm arm-right"><div class="arm-hand"></div></div>
+          <div class="robot-treads"><div class="tread tread-left"></div><div class="tread tread-right"></div></div>
+        </div>
+        <div class="sparkle s0"></div><div class="sparkle s1"></div><div class="sparkle s2"></div><div class="sparkle s3"></div>
+        <div class="sparkle s4"></div><div class="sparkle s5"></div><div class="sparkle s6"></div><div class="sparkle s7"></div>
+      </div>
+    </div>
     <div class="front-title">Create 2 Inspire</div>
     <div class="front-badge">C &nbsp; 2 &nbsp; I</div>
     <div class="front-tagline">Igniting Minds, Inspiring Futures</div>
@@ -454,7 +528,7 @@
       <div class="insight-item"><i class="fa-solid fa-circle-check"></i> NCERT-aligned curriculum</div>
     </div>
     <div class="qr-badge">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR">
+      <img src="https://raw.githubusercontent.com/create2inspiree/c2i-web/main/marketing/Whatsapp%20community%20QR.jpeg" alt="WhatsApp Community QR">
     </div>
   </div>
 </div>
@@ -551,7 +625,7 @@
     </div>
     <div class="safety-note"><i class="fa-solid fa-shield-halved"></i> Safe, ad-free environment designed for students aged 10–16.</div>
     <div class="qr-badge">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR">
+      <img src="https://raw.githubusercontent.com/create2inspiree/c2i-web/main/marketing/Whatsapp%20community%20QR.jpeg" alt="WhatsApp Community QR">
     </div>
   </div>
 
@@ -587,6 +661,7 @@
       <p>Talk to our academic counsellor and get a personalised learning plan for your child.</p>
       <div class="cta-contact">
         <i class="fa-solid fa-phone"></i> +91 630 171 8170<br>
+        <i class="fa-solid fa-phone"></i> +91 955 370 1848<br>
         <i class="fa-solid fa-globe"></i> www.c2i.co.in
       </div>
     </div>
