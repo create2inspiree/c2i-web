@@ -79,7 +79,7 @@
   .robot-scene .robot-container { transform: scale(0.85); transform-origin: center top; margin-top: -5px; }
 
   /* BODY */
-  .poster-body { flex: 1; position: relative; z-index: 2; padding: 12px 32px 10px; display: flex; flex-direction: column; gap: 12px; }
+  .poster-body { flex: 1; position: relative; z-index: 2; padding: 18px 32px 14px; display: flex; flex-direction: column; gap: 16px; justify-content: center; }
   .products-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .product-card {
     border-radius: 16px; padding: 18px 16px;
@@ -100,7 +100,7 @@
   .product-name { font-size: 15px; font-weight: 800; color: var(--vanilla); }
   .product-tag { font-size: 9px; color: var(--accent-gold); letter-spacing: 2px; text-transform: uppercase; }
   .feature-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-  .feature-list li { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: rgba(244,237,219,0.82); }
+  .feature-list li { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: rgba(244,237,219,0.75); }
   .feature-list li i { color: var(--accent-gold); font-size: 9px; flex-shrink: 0; }
   .feature-list li strong { color: var(--vanilla); }
 
@@ -144,8 +144,8 @@
   .footer-item i { color: var(--accent-gold); font-size: 10px; }
   .wa-badge { position: absolute; bottom: 46px; right: 8px; width: 48px; height: 48px; background: #25D366; border-radius: 8px; display: flex; align-items: center; justify-content: center; z-index: 10; }
   .wa-badge i { font-size: 22px; color: #fff; }
-  .qr-badge { position: absolute; bottom: 46px; left: 8px; width: 48px; height: 48px; background: #fff; border-radius: 6px; padding: 2px; display: flex; align-items: center; justify-content: center; z-index: 10; }
-  .qr-badge img { width: 44px; height: 44px; display: block; border-radius: 3px; object-fit: cover; }
+  .qr-badge { position: absolute; bottom: 46px; left: 8px; width: 58px; height: 58px; background: #fff; border-radius: 6px; padding: 3px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+  .qr-badge img { width: 52px; height: 52px; display: block; border-radius: 3px; object-fit: cover; }
 
   /* CSS Animated Robot */
   .robot-container { position: relative; width: 140px; height: 150px; display: flex; align-items: flex-start; justify-content: center; animation: float 4s ease-in-out infinite; }
@@ -257,17 +257,14 @@
         <div class="product-header">
           <div class="product-icon"><i class="fa-solid fa-book-open"></i></div>
           <div>
-            <div class="product-name">C2I Tuition Programme</div>
+            <div class="product-name">C2I Tuition</div>
             <div class="product-tag">Expert Coaching</div>
           </div>
         </div>
         <ul class="feature-list">
-          <li><i class="fa-solid fa-circle-dot"></i> <strong>Small-group</strong> batches (limited students)</li>
           <li><i class="fa-solid fa-circle-dot"></i> Classes <strong>6&ndash;8</strong> &bull; Maths &amp; Science</li>
-          <li><i class="fa-solid fa-circle-dot"></i> CBSE / NCERT aligned curriculum</li>
-          <li><i class="fa-solid fa-circle-dot"></i> Navodaya (JNVST) &amp; Sainik (AISSEE)</li>
-          <li><i class="fa-solid fa-circle-dot"></i> NTSE, Olympiad preparation</li>
-          <li><i class="fa-solid fa-circle-dot"></i> Expert tutors &bull; Mock tests &amp; reports</li>
+          <li><i class="fa-solid fa-circle-dot"></i> CBSE &bull; JNVST &bull; AISSEE &bull; NTSE</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Small-group batches &bull; Expert tutors</li>
         </ul>
       </div>
       <!-- Gottit Card -->
@@ -275,28 +272,16 @@
         <div class="product-header">
           <div class="product-icon"><i class="fa-solid fa-brain"></i></div>
           <div>
-            <div class="product-name">Gottit AI Platform</div>
+            <div class="product-name">Gottit AI</div>
             <div class="product-tag">AI-Adaptive Learning</div>
           </div>
         </div>
         <ul class="feature-list">
-          <li><i class="fa-solid fa-circle-dot"></i> AI-adaptive question engine</li>
-          <li><i class="fa-solid fa-circle-dot"></i> <strong>157 chapters</strong> &bull; Grades 6&ndash;10 NCERT</li>
-          <li><i class="fa-solid fa-circle-dot"></i> Visual knowledge graph</li>
-          <li><i class="fa-solid fa-circle-dot"></i> Real-time analytics &amp; mastery tracking</li>
-          <li><i class="fa-solid fa-circle-dot"></i> <strong>24/7 access</strong> &bull; Web + Android</li>
-          <li><i class="fa-solid fa-circle-dot"></i> Maths, Science, Physics, Chemistry, Bio</li>
+          <li><i class="fa-solid fa-circle-dot"></i> <strong>157 chapters</strong> &bull; Grades 6&ndash;10</li>
+          <li><i class="fa-solid fa-circle-dot"></i> AI-powered &bull; 24/7 access</li>
+          <li><i class="fa-solid fa-circle-dot"></i> Web + Android &bull; Real-time analytics</li>
         </ul>
       </div>
-    </div>
-
-    <!-- STATS BAR -->
-    <div class="stats-bar">
-      <div class="stat-cell"><div class="stat-val">157</div><div class="stat-lbl">Chapters</div></div>
-      <div class="stat-cell"><div class="stat-val"><i class="fa-solid fa-brain"></i></div><div class="stat-lbl">AI-Powered</div></div>
-      <div class="stat-cell"><div class="stat-val">24/7</div><div class="stat-lbl">Access</div></div>
-      <div class="stat-cell"><div class="stat-val"><i class="fa-solid fa-users"></i></div><div class="stat-lbl">Limited Batches</div></div>
-      <div class="stat-cell"><div class="stat-val"><i class="fa-solid fa-mobile-screen"></i></div><div class="stat-lbl">Web + App</div></div>
     </div>
 
     <!-- CTA -->
@@ -317,7 +302,7 @@
   <!-- WA BADGE -->
   <div class="wa-badge"><i class="fa-brands fa-whatsapp"></i></div>
   <!-- QR BADGE -->
-  <div class="qr-badge"><img src="https://raw.githubusercontent.com/create2inspiree/c2i-web/main/marketing/Whatsapp%20community%20QR.jpeg" alt="WhatsApp Community QR"></div>
+  <div class="qr-badge"><img src="https://github.com/user-attachments/assets/afb08632-859c-4654-b0fd-bde8b9c0bfd6" alt="WhatsApp Community QR"></div>
 </div>
 </body>
 </html>
