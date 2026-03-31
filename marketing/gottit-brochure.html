@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gottit — AI Adaptive Learning Brochure</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --brand-900: #381e28;
+    --brand-800: #482833;
+    --brand-500: #7B4955;
+    --brand-400: #9a5f6e;
+    --vanilla: #F4EDDB;
+    --accent-gold: #d4a04a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #d6cfc0;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .print-btn {
+    padding: 10px 28px;
+    background: var(--brand-500);
+    color: var(--vanilla);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+  }
+  .print-btn:hover { background: var(--brand-800); }
+  .page-label {
+    font-size: 12px;
+    color: #666;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    align-self: flex-start;
+    margin-left: calc(50% - 447px);
+  }
+  .brochure-page {
+    width: 894px;
+    height: 318px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 4px 24px rgba(56,30,40,0.35);
+    position: relative;
+  }
+  .panel {
+    position: relative;
+    padding: 20px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: hidden;
+  }
+  .panel-divider { border-left: 1px dashed rgba(123,73,85,0.3); }
+  /* QR BADGE */
+  .qr-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 4px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-badge img { width: 32px; height: 32px; display: block; }
+  /* BACK COVER */
+  .panel-back {
+    background: var(--brand-900);
+    color: var(--vanilla);
+  }
+  .contact-title { font-size: 12px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+  .contact-row { display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(244,237,219,0.80); margin-bottom: 3px; }
+  .contact-row i { color: var(--accent-gold); font-size: 11px; width: 14px; }
+  .social-row { display: flex; gap: 8px; margin: 6px 0; }
+  .social-row a {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(244,237,219,0.10);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--vanilla); text-decoration: none; font-size: 11px;
+    border: 1px solid rgba(244,237,219,0.18);
+  }
+  .testimonials-title { font-size: 10px; font-weight: 700; color: var(--accent-gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+  .testimonial {
+    background: rgba(244,237,219,0.06);
+    border-left: 2px solid var(--accent-gold);
+    padding: 5px 7px;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 4px;
+  }
+  .testimonial p { font-size: 9.5px; font-style: italic; color: rgba(244,237,219,0.78); line-height: 1.4; }
+  .testimonial cite { font-size: 9px; color: var(--accent-gold); font-style: normal; }
+  .powered-by { font-size: 9px; color: rgba(244,237,219,0.45); margin-top: auto; padding-top: 6px; border-top: 1px solid rgba(244,237,219,0.10); text-align: center; }
+  /* INSIDE FLAP */
+  .panel-flap { background: var(--vanilla); color: var(--brand-900); }
+  .flap-title { font-size: 13px; font-weight: 700; color: var(--brand-500); display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+  .flap-title i { color: var(--accent-gold); }
+  .feature-card {
+    background: rgba(123,73,85,0.07); border-radius: 8px;
+    padding: 7px 9px; display: flex; gap: 8px; align-items: flex-start; margin-bottom: 5px;
+  }
+  .feature-card i { color: var(--brand-500); font-size: 13px; margin-top: 1px; flex-shrink: 0; }
+  .feature-card-title { font-size: 11px; font-weight: 700; color: var(--brand-800); }
+  .feature-card-desc { font-size: 9.5px; color: rgba(72,40,51,0.68); line-height: 1.4; margin-top: 1px; }
+  .flap-quote { margin-top: auto; font-size: 10px; font-style: italic; color: rgba(72,40,51,0.55); border-top: 1px solid rgba(123,73,85,0.15); padding-top: 6px; }
+  /* FRONT COVER */
+  .panel-front {
+    background: linear-gradient(160deg, var(--brand-900) 0%, var(--brand-500) 70%, var(--brand-400) 100%);
+    color: var(--vanilla);
+  }
+  .gottit-logo {
+    display: flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    background: rgba(244,237,219,0.10);
+    border: 2px solid var(--accent-gold);
+    border-radius: 10px;
+    align-self: center;
+    margin-bottom: 4px;
+  }
+  .gottit-logo svg {
+    width: 24px; height: 24px;
+    stroke: var(--accent-gold); fill: none;
+    stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round;
+  }
+  .front-title { font-size: 28px; font-weight: 700; color: var(--vanilla); letter-spacing: 1px; text-align: center; line-height: 1; }
+  .front-subtitle { font-size: 11px; font-weight: 600; color: var(--accent-gold); letter-spacing: 3px; text-transform: uppercase; text-align: center; margin-bottom: 6px; }
+  .front-tagline { font-size: 10.5px; font-style: italic; color: rgba(244,237,219,0.78); text-align: center; }
+  .gold-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--accent-gold), transparent); align-self: center; margin: 4px 0; }
+  .stat-cards { display: flex; gap: 5px; justify-content: center; }
+  .stat-card {
+    background: rgba(244,237,219,0.10);
+    border: 1px solid rgba(244,237,219,0.16);
+    border-radius: 8px;
+    padding: 6px 8px;
+    text-align: center;
+    flex: 1;
+  }
+  .stat-card-val { font-size: 14px; font-weight: 700; color: var(--accent-gold); }
+  .stat-card-val i { font-size: 13px; }
+  .stat-card-lbl { font-size: 8.5px; color: rgba(244,237,219,0.65); }
+  .prog-card {
+    background: rgba(244,237,219,0.10);
+    border: 1px solid rgba(244,237,219,0.14);
+    border-radius: 7px;
+    padding: 5px 8px;
+    display: flex; gap: 7px; align-items: center;
+    margin-bottom: 3px;
+  }
+  .prog-card i { color: var(--accent-gold); font-size: 12px; }
+  .prog-card-title { font-size: 10px; font-weight: 600; color: var(--vanilla); }
+  .prog-card-sub { font-size: 8.5px; color: rgba(244,237,219,0.60); }
+  .front-url { font-size: 10px; color: var(--accent-gold); text-align: center; margin-top: auto; }
+  /* INSIDE PAGES */
+  .panel-engine { background: var(--brand-900); color: var(--vanilla); }
+  .panel-features { background: var(--vanilla); color: var(--brand-900); }
+  .panel-roles { background: var(--brand-800); color: var(--vanilla); }
+  /* Common inside */
+  .inside-title {
+    font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; gap: 6px;
+    margin-bottom: 6px;
+  }
+  .inside-title i { font-size: 13px; }
+  .engine-step {
+    display: flex; align-items: flex-start; gap: 7px; margin-bottom: 4px;
+  }
+  .step-num {
+    width: 17px; height: 17px; border-radius: 50%;
+    background: var(--accent-gold); color: var(--brand-900);
+    font-size: 9px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .step-text { font-size: 10px; color: rgba(244,237,219,0.78); line-height: 1.4; }
+  .internals-box {
+    background: rgba(244,237,219,0.07);
+    border: 1px solid rgba(244,237,219,0.14);
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-top: 4px;
+  }
+  .internals-title { font-size: 10px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+  .internals-row { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 3px; }
+  .internals-row i { color: var(--accent-gold); font-size: 9px; margin-top: 2px; }
+  .internals-row span { font-size: 9.5px; color: rgba(244,237,219,0.72); line-height: 1.4; }
+  /* FEATURES PANEL */
+  .feat-item { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 5px; }
+  .feat-item i { color: var(--brand-500); font-size: 12px; margin-top: 1px; flex-shrink: 0; }
+  .feat-title { font-size: 11px; font-weight: 600; color: var(--brand-800); }
+  .feat-desc { font-size: 9.5px; color: rgba(72,40,51,0.65); line-height: 1.4; }
+  .table-title { font-size: 10px; font-weight: 700; color: var(--brand-500); text-transform: uppercase; letter-spacing: 1px; margin: 6px 0 4px; }
+  .ncert-table { width: 100%; border-collapse: collapse; font-size: 9.5px; }
+  .ncert-table th { background: var(--brand-500); color: var(--vanilla); padding: 4px 6px; text-align: left; font-weight: 600; }
+  .ncert-table td { padding: 3px 6px; color: var(--brand-800); border-bottom: 1px solid rgba(123,73,85,0.12); }
+  .ncert-table tr:nth-child(even) td { background: rgba(123,73,85,0.05); }
+  /* ROLES PANEL */
+  .role-card {
+    background: rgba(244,237,219,0.08);
+    border-radius: 8px; padding: 7px 9px; margin-bottom: 5px;
+    border-left: 3px solid var(--accent-gold);
+  }
+  .role-title { font-size: 11px; font-weight: 700; color: var(--accent-gold); margin-bottom: 3px; }
+  .role-title i { margin-right: 5px; }
+  .role-list { list-style: none; }
+  .role-list li { font-size: 9.5px; color: rgba(244,237,219,0.72); margin-bottom: 2px; display: flex; align-items: flex-start; gap: 5px; }
+  .role-list li i { color: var(--accent-gold); font-size: 8px; margin-top: 2px; }
+  .cta-box {
+    margin-top: auto;
+    background: linear-gradient(135deg, rgba(212,160,74,0.22), rgba(212,160,74,0.08));
+    border: 1px solid rgba(212,160,74,0.38);
+    border-radius: 9px; padding: 10px; text-align: center;
+  }
+  .cta-box h3 { font-size: 12px; font-weight: 700; color: var(--accent-gold); margin-bottom: 3px; }
+  .cta-box p { font-size: 9.5px; color: rgba(244,237,219,0.78); line-height: 1.5; margin-bottom: 5px; }
+  .cta-contact { font-size: 10px; color: var(--vanilla); font-weight: 600; }
+  @media print {
+    @page { size: 297mm 210mm landscape; margin: 0; }
+    body { background: none; padding: 0; gap: 0; }
+    .print-btn { display: none; }
+    .page-label { display: none; }
+    .brochure-page {
+      width: 297mm; height: 210mm;
+      box-shadow: none; border-radius: 0;
+      page-break-after: always;
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .brochure-page:last-child { page-break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Print / Save as PDF</button>
+
+<!-- PAGE 1: OUTSIDE -->
+<div class="page-label">Page 1 — Outside (Back Cover | Inside Flap | Front Cover)</div>
+<div class="brochure-page">
+
+  <!-- BACK COVER -->
+  <div class="panel panel-back">
+    <div class="contact-title"><i class="fa-solid fa-address-book"></i> Get In Touch</div>
+    <div class="contact-row"><i class="fa-solid fa-globe"></i> www.c2i.co.in</div>
+    <div class="contact-row"><i class="fa-solid fa-envelope"></i> create2inspire.support@gmail.com</div>
+    <div class="contact-row"><i class="fa-solid fa-phone"></i> +91 630 171 8170</div>
+    <div class="social-row">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+    <div class="testimonials-title"><i class="fa-solid fa-comment-dots"></i> What Our Users Say</div>
+    <div class="testimonial">
+      <p>"My weak areas improved within weeks. The AI just knows what I need!"</p>
+      <cite>— Class 8 Student</cite>
+    </div>
+    <div class="testimonial">
+      <p>"Gottit's analytics show exactly where each student needs help. A game-changer."</p>
+      <cite>— Science Teacher</cite>
+    </div>
+    <div class="testimonial">
+      <p>"My daughter practises every evening. Her confidence has soared."</p>
+      <cite>— Parent, Class 7</cite>
+    </div>
+    <div class="powered-by">Powered by Create2Inspire (C2I)</div>
+    <div class="qr-badge">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR">
+    </div>
+  </div>
+
+  <!-- INSIDE FLAP -->
+  <div class="panel panel-flap panel-divider">
+    <div class="flap-title"><i class="fa-solid fa-star"></i> Why Gottit?</div>
+    <div class="feature-card">
+      <i class="fa-solid fa-brain"></i>
+      <div>
+        <div class="feature-card-title">Truly Adaptive AI</div>
+        <div class="feature-card-desc">Real-time difficulty tuning based on your live response patterns.</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <i class="fa-solid fa-diagram-project"></i>
+      <div>
+        <div class="feature-card-title">Visual Knowledge Graph</div>
+        <div class="feature-card-desc">See your mastery across topics &amp; identify what to study next.</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <i class="fa-solid fa-book-open"></i>
+      <div>
+        <div class="feature-card-title">NCERT Aligned</div>
+        <div class="feature-card-desc">157 chapters across Classes 6–10 mapped to school syllabus.</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <div>
+        <div class="feature-card-title">Real-Time Analytics</div>
+        <div class="feature-card-desc">Velocity, mastery score &amp; mistake analysis updated live.</div>
+      </div>
+    </div>
+    <div class="feature-card">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <div>
+        <div class="feature-card-title">Web + Mobile</div>
+        <div class="feature-card-desc">Seamless across browser, Android app &amp; tablet.</div>
+      </div>
+    </div>
+    <div class="flap-quote">"Learn smarter, not harder."</div>
+  </div>
+
+  <!-- FRONT COVER -->
+  <div class="panel panel-front panel-divider">
+    <div class="gottit-logo">
+      <svg viewBox="0 0 24 24"><path d="M5 13l5 5L20 7"/></svg>
+    </div>
+    <div class="front-title">Gottit</div>
+    <div class="front-subtitle">AI Adaptive Learning</div>
+    <div class="front-tagline">Master every concept. One step at a time.</div>
+    <div class="gold-divider"></div>
+    <div class="stat-cards">
+      <div class="stat-card"><div class="stat-card-val">157</div><div class="stat-card-lbl">Chapters</div></div>
+      <div class="stat-card"><div class="stat-card-val"><i class="fa-solid fa-microchip"></i></div><div class="stat-card-lbl">AI Engine</div></div>
+      <div class="stat-card"><div class="stat-card-val">24/7</div><div class="stat-card-lbl">Access</div></div>
+    </div>
+    <div class="prog-card">
+      <i class="fa-solid fa-brain"></i>
+      <div>
+        <div class="prog-card-title">Adaptive Question Engine</div>
+        <div class="prog-card-sub">Difficulty adjusts in real time</div>
+      </div>
+    </div>
+    <div class="prog-card">
+      <i class="fa-solid fa-diagram-project"></i>
+      <div>
+        <div class="prog-card-title">Knowledge Graph</div>
+        <div class="prog-card-sub">Visual mastery map</div>
+      </div>
+    </div>
+    <div class="prog-card">
+      <i class="fa-solid fa-chart-line"></i>
+      <div>
+        <div class="prog-card-title">Live Analytics</div>
+        <div class="prog-card-sub">Track progress &amp; weak spots</div>
+      </div>
+    </div>
+    <div class="front-url"><i class="fa-solid fa-globe"></i> www.c2i.co.in</div>
+    <div class="qr-badge">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR">
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 2: INSIDE -->
+<div class="page-label">Page 2 — Inside (Adaptive Engine | Features | Roles)</div>
+<div class="brochure-page">
+
+  <!-- ADAPTIVE ENGINE PANEL -->
+  <div class="panel panel-engine">
+    <div class="inside-title" style="color:var(--accent-gold);"><i class="fa-solid fa-brain"></i> Adaptive Engine</div>
+    <div class="engine-step">
+      <div class="step-num">1</div>
+      <div class="step-text">Student selects chapter &amp; topic</div>
+    </div>
+    <div class="engine-step">
+      <div class="step-num">2</div>
+      <div class="step-text">AI calibration: 3 benchmark questions</div>
+    </div>
+    <div class="engine-step">
+      <div class="step-num">3</div>
+      <div class="step-text">Difficulty auto-set to student's current level</div>
+    </div>
+    <div class="engine-step">
+      <div class="step-num">4</div>
+      <div class="step-text">AI adjusts after every response in real time</div>
+    </div>
+    <div class="engine-step">
+      <div class="step-num">5</div>
+      <div class="step-text">Mastery score updated; knowledge graph refreshed</div>
+    </div>
+    <div class="engine-step">
+      <div class="step-num">6</div>
+      <div class="step-text">Weak spots flagged for focused revision</div>
+    </div>
+    <div class="internals-box">
+      <div class="internals-title">Adaptive Engine Internals</div>
+      <div class="internals-row"><i class="fa-solid fa-sliders"></i><span>Difficulty: scale 1–10, auto-levelled</span></div>
+      <div class="internals-row"><i class="fa-solid fa-bolt"></i><span>Velocity: correct / time ratio metric</span></div>
+      <div class="internals-row"><i class="fa-solid fa-xmark"></i><span>Mistake classification: careless vs conceptual</span></div>
+      <div class="internals-row"><i class="fa-solid fa-magnifying-glass"></i><span>Weak-spot detection: 3-strike rule per concept</span></div>
+    </div>
+  </div>
+
+  <!-- FEATURES PANEL -->
+  <div class="panel panel-features panel-divider">
+    <div class="inside-title" style="color:var(--brand-500);"><i class="fa-solid fa-list-check"></i> Platform Features</div>
+    <div class="feat-item">
+      <i class="fa-solid fa-circle-question"></i>
+      <div><div class="feat-title">AI Question Generation</div><div class="feat-desc">Unlimited questions generated by the AI engine.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-solid fa-diagram-project"></i>
+      <div><div class="feat-title">Knowledge Graph</div><div class="feat-desc">Visual concept mapping with mastery levels.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-solid fa-microphone"></i>
+      <div><div class="feat-title">Voice Input</div><div class="feat-desc">Speak answers for hands-free practice.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-solid fa-chart-pie"></i>
+      <div><div class="feat-title">Analytics Dashboard</div><div class="feat-desc">Live mastery, velocity &amp; mistake analysis.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-solid fa-file-pdf"></i>
+      <div><div class="feat-title">PDF Reports</div><div class="feat-desc">Downloadable progress reports for parents &amp; teachers.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-solid fa-circle-half-stroke"></i>
+      <div><div class="feat-title">Dark / Light Mode</div><div class="feat-desc">Comfortable study in any lighting condition.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-brands fa-android"></i>
+      <div><div class="feat-title">Android App</div><div class="feat-desc">Native app for seamless mobile learning.</div></div>
+    </div>
+    <div class="feat-item">
+      <i class="fa-solid fa-lock"></i>
+      <div><div class="feat-title">Secure Auth</div><div class="feat-desc">Role-based access: student, teacher, admin.</div></div>
+    </div>
+    <div class="table-title">NCERT Curriculum Coverage</div>
+    <table class="ncert-table">
+      <tr><th>Classes</th><th>Subjects</th><th>Chapters</th></tr>
+      <tr><td>6–8</td><td>Maths &amp; Science</td><td>84</td></tr>
+      <tr><td>9–10</td><td>Maths, Physics, Chemistry, Biology</td><td>73</td></tr>
+      <tr><td colspan="2"><strong>Total</strong></td><td><strong>157</strong></td></tr>
+    </table>
+  </div>
+
+  <!-- ROLES PANEL -->
+  <div class="panel panel-roles panel-divider">
+    <div class="inside-title" style="color:var(--accent-gold);"><i class="fa-solid fa-users"></i> Built for Everyone</div>
+    <div class="role-card">
+      <div class="role-title"><i class="fa-solid fa-graduation-cap"></i> Students</div>
+      <ul class="role-list">
+        <li><i class="fa-solid fa-chevron-right"></i> Adaptive practice at own pace</li>
+        <li><i class="fa-solid fa-chevron-right"></i> Instant step-by-step explanations</li>
+        <li><i class="fa-solid fa-chevron-right"></i> Progress badges &amp; mastery scores</li>
+      </ul>
+    </div>
+    <div class="role-card">
+      <div class="role-title"><i class="fa-solid fa-chalkboard-user"></i> Teachers</div>
+      <ul class="role-list">
+        <li><i class="fa-solid fa-chevron-right"></i> Assign chapters &amp; track class progress</li>
+        <li><i class="fa-solid fa-chevron-right"></i> View individual student analytics</li>
+        <li><i class="fa-solid fa-chevron-right"></i> Download PDF progress reports</li>
+      </ul>
+    </div>
+    <div class="role-card">
+      <div class="role-title"><i class="fa-solid fa-user-shield"></i> Admins</div>
+      <ul class="role-list">
+        <li><i class="fa-solid fa-chevron-right"></i> Manage users, batches &amp; content</li>
+        <li><i class="fa-solid fa-chevron-right"></i> Institution-wide analytics dashboard</li>
+        <li><i class="fa-solid fa-chevron-right"></i> Curriculum &amp; question bank control</li>
+      </ul>
+    </div>
+    <div class="cta-box">
+      <h3><i class="fa-solid fa-rocket"></i> Start Learning Smarter</h3>
+      <p>Free to get started. No credit card required. Join thousands of students mastering NCERT concepts with Gottit.</p>
+      <div class="cta-contact">
+        <i class="fa-solid fa-phone"></i> +91 630 171 8170<br>
+        <i class="fa-solid fa-globe"></i> www.c2i.co.in
+      </div>
+    </div>
+    <div class="qr-badge">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR">
+    </div>
+  </div>
+</div>
+</body>
+</html>
