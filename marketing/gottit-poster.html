@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gottit — AI Adaptive Learning Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --brand-900: #381e28;
+    --brand-800: #482833;
+    --brand-500: #7B4955;
+    --brand-400: #9a5f6e;
+    --vanilla: #F4EDDB;
+    --accent-gold: #d4a04a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8e0d0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  .print-btn {
+    margin-bottom: 16px;
+    padding: 10px 28px;
+    background: var(--brand-500);
+    color: var(--vanilla);
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+  }
+  .print-btn:hover { background: var(--brand-800); }
+  .poster {
+    width: 800px;
+    height: 800px;
+    position: relative;
+    background: linear-gradient(160deg, var(--brand-900) 0%, var(--brand-500) 60%, var(--brand-400) 100%);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 8px 40px rgba(56,30,40,0.5);
+  }
+  /* TOP */
+  .poster-top {
+    padding: 32px 48px 22px;
+    text-align: center;
+  }
+  .gottit-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: rgba(244,237,219,0.12);
+    border: 2px solid var(--accent-gold);
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  .gottit-logo svg {
+    width: 30px;
+    height: 30px;
+    stroke: var(--accent-gold);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .brand-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--vanilla);
+    letter-spacing: 2px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .brand-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero-text {
+    font-size: 15px;
+    color: rgba(244,237,219,0.80);
+    margin-bottom: 16px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+  .gold-divider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+    margin: 0 auto;
+  }
+  /* MIDDLE */
+  .poster-middle {
+    flex: 1;
+    padding: 20px 40px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .card {
+    background: rgba(244,237,219,0.10);
+    border: 1px solid rgba(244,237,219,0.18);
+    border-radius: 14px;
+    padding: 18px 16px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .card-icon {
+    font-size: 24px;
+    color: var(--accent-gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .card-body {}
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--vanilla);
+    margin-bottom: 4px;
+  }
+  .card-desc {
+    font-size: 12px;
+    color: rgba(244,237,219,0.72);
+    line-height: 1.5;
+  }
+  /* STATS STRIP */
+  .stats-strip {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: rgba(244,237,219,0.07);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(244,237,219,0.12);
+  }
+  .stat-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px 6px;
+    border-right: 1px solid rgba(244,237,219,0.10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-gold);
+  }
+  .stat-value i { font-size: 14px; }
+  .stat-label {
+    font-size: 10px;
+    color: rgba(244,237,219,0.65);
+    letter-spacing: 0.5px;
+  }
+  /* POWERED BY */
+  .powered-by {
+    text-align: center;
+    font-size: 10px;
+    color: rgba(244,237,219,0.45);
+    letter-spacing: 0.5px;
+    padding: 4px 0 2px;
+  }
+  /* FOOTER */
+  .poster-footer {
+    background: rgba(244,237,219,0.08);
+    border-top: 1px solid rgba(244,237,219,0.12);
+    padding: 12px 80px;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(244,237,219,0.70);
+    letter-spacing: 0.3px;
+  }
+  /* WHATSAPP BADGE */
+  .wa-badge {
+    position: absolute;
+    bottom: 52px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    background: #25D366;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    text-decoration: none;
+  }
+  .wa-badge i { font-size: 16px; color: #fff; }
+  .wa-badge span { font-size: 7px; color: #fff; font-weight: 600; text-align: center; line-height: 1.2; }
+  /* QR CODE */
+  .qr-badge {
+    position: absolute;
+    bottom: 52px;
+    left: 8px;
+    width: 48px;
+    height: 48px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-badge img { width: 44px; height: 44px; display: block; }
+  @media print {
+    @page { size: 210mm 210mm; margin: 0; }
+    body { background: none; padding: 0; }
+    .print-btn { display: none; }
+    .poster {
+      width: 210mm;
+      height: 210mm;
+      box-shadow: none;
+      border-radius: 0;
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()"><i class="fa-solid fa-print"></i> Print / Save as PDF</button>
+
+<div class="poster">
+  <!-- TOP -->
+  <div class="poster-top">
+    <div class="gottit-logo">
+      <svg viewBox="0 0 24 24"><path d="M5 13l5 5L20 7"/></svg>
+    </div>
+    <div class="brand-title">Gottit</div>
+    <div class="brand-subtitle">AI Adaptive Learning</div>
+    <div class="hero-text">Master every concept with an AI-powered engine that adapts to your learning pace — step by step.</div>
+    <div class="gold-divider"></div>
+  </div>
+
+  <!-- MIDDLE -->
+  <div class="poster-middle">
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-brain"></i></div>
+        <div class="card-body">
+          <div class="card-title">Adaptive AI Engine</div>
+          <div class="card-desc">Questions at exactly your level — difficulty auto-adjusted in real time.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div class="card-body">
+          <div class="card-title">Knowledge Graph</div>
+          <div class="card-desc">Visual concept map showing mastery &amp; prerequisites across topics.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+        <div class="card-body">
+          <div class="card-title">NCERT Grades 6–10</div>
+          <div class="card-desc">Maths, Science, Physics, Chemistry, Biology — 157 chapters covered.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <div class="card-body">
+          <div class="card-title">Real-Time Analytics</div>
+          <div class="card-desc">Mastery tracking, velocity metrics &amp; detailed mistake analysis.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat-item">
+        <div class="stat-value">157</div>
+        <div class="stat-label">Chapters</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">4</div>
+        <div class="stat-label">Question Types</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><i class="fa-solid fa-microchip"></i></div>
+        <div class="stat-label">AI Engine</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Access</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value"><i class="fa-solid fa-mobile-screen"></i></div>
+        <div class="stat-label">Web + App</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="powered-by">Powered by Create2Inspire (C2I)</div>
+
+  <!-- FOOTER -->
+  <div class="poster-footer">
+    www.c2i.co.in &nbsp;|&nbsp; +91 630 171 8170 &nbsp;|&nbsp; create2inspire.support@gmail.com
+  </div>
+
+  <!-- WHATSAPP BADGE -->
+  <a href="https://wa.me/916301718170" class="wa-badge" target="_blank" rel="noopener">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>+91 630<br>171 8170</span>
+  </a>
+
+  <!-- QR CODE -->
+  <div class="qr-badge">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.c2i.co.in" alt="QR Code">
+  </div>
+</div>
+</body>
+</html>
